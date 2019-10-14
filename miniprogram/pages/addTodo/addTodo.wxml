@@ -1,0 +1,10 @@
+<!--pages/addTodo/addTodo.wxml-->
+<form bindsubmit="onSubmit" report-submit="{{true}}">
+<input name="title"></input>
+<block>
+  <image src="{{image}}"></image>
+</block>
+<button bindtap='selectImage'>选择图片</button>
+<button bindtap="chooseLocation">选择位置</button>
+<button form-type="submit">提交</button>
+</form>

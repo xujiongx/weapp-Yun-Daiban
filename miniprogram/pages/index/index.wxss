@@ -1,1 +1,15 @@
 /* miniprogram/pages/index/index.wxss */
+.plusbtn{
+  position: fixed;
+  z-index: 100;
+  bottom: 100rpx;
+  right: 320rpx;
+  background-color: rgb(186, 240, 85);
+  border-radius: 100rpx;
+  line-height: 40rpx;
+  padding: 20rpx;
+}
+
+.plusIcon{
+  font-size: 80rpx;
+}
