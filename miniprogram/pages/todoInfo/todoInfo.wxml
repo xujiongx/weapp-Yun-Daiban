@@ -21,6 +21,10 @@ bind:click="viewLocation"
 >
 </van-cell>
 
-
+<van-cell
+title="{{task.time}}"
+border="{{false}}"
+>
+</van-cell>
 
 </van-cell-group>

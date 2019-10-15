@@ -3,21 +3,30 @@ const todos=db.collection('todos')
 
 Page({
   data:{
-    image:''
+    image:'',
+    time:''
   },
   pageData:{
     locationObj:{}
   },
   //提交
-  onSubmit(even){
-    const title=even.detail.value.title
-    console.log(even.detail.formId)
-    
+  onSubmit(event){
+    // 时间
+    let myDate=new Date;
+    let month=myDate.getMonth()+1;
+    let day=myDate.getDay()
+    let year=myDate.getFullYear()
+    let myTime = `${year}-${month}-${day}  ${this.data.time}`
+  console.log(myTime)
+    console.log(event.detail.formId)
     todos.add({
       data:{
-        title:title,
+        title: event.detail.value.title,
         imageUrl:this.data.image,
-        location:this.pageData.locationObj
+        location:this.pageData.locationObj,
+        status:'in-progress',
+        time:myTime,
+        formId:event.detail.formId
       }
     }).then(res=>{
       wx.cloud.callFunction({
@@ -73,6 +82,14 @@ Page({
         }
         this.pageData.locationObj=locationObj
       },
+    })
+  },
+
+  //选择时间
+  bindTimeChange(event){
+    console.log(event)
+    this.setData({
+      time:event.detail.value
     })
   }
 })
